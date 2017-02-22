@@ -12,6 +12,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "mentors",uniqueConstraints={
 		@UniqueConstraint(columnNames={"NAME"})})
 public class Mentor {
+	private Mentor(){
+		
+	}
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   

@@ -14,6 +14,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "revtek_portfolio",uniqueConstraints = {
 	    @UniqueConstraint(columnNames={"ID", "NAME"})})
 public class RevtekPortfolio {
+	private RevtekPortfolio(){
+		
+	}
       @Id
       @GeneratedValue(strategy = GenerationType.AUTO)
       private Integer id;

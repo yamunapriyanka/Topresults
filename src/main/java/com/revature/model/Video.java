@@ -12,6 +12,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "videos",uniqueConstraints = {
 	    @UniqueConstraint(columnNames={"URL", "NAME"})})
 public class Video {
+private Video(){
+		
+	}
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;

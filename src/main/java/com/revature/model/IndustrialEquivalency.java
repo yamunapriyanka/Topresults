@@ -11,6 +11,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "industrial_equivalency",uniqueConstraints={
 		@UniqueConstraint(columnNames={"ID","SKILL_SETS"})})
 public class IndustrialEquivalency {
+	private  IndustrialEquivalency(){
+		
+	}
       @Id
       @GeneratedValue(strategy = GenerationType.AUTO)
       private Integer id;

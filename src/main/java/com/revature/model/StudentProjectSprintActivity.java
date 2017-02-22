@@ -18,6 +18,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "student_project_sprint_activities",uniqueConstraints = {
 	    @UniqueConstraint(columnNames={"STUDENT_PROJECTS_SPRINTS_ID", "PROJECT_SPRINT_ACTIVITIES_ID"})})
 public class StudentProjectSprintActivity {
+private StudentProjectSprintActivity(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;

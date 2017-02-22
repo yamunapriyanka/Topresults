@@ -13,6 +13,9 @@ import javax.persistence.UniqueConstraint;
 	    @UniqueConstraint(columnNames={"ID", "CODE"})})
 
 public class SeedStatus {
+private SeedStatus(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;

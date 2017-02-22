@@ -16,6 +16,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "qualifications")
 public class Qualification {
+	private Qualification(){
+		
+	}
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;

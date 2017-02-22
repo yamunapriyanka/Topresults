@@ -17,12 +17,15 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "student_project_sprints",uniqueConstraints = {
 	    @UniqueConstraint(columnNames={"STUDENT_PROJECT_ID", "PROJECT_SPRINTS_ID"})})
 public class StudentProjectSprint {
+	private StudentProjectSprint(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "STUDENT_PROJECT_ID")
-	private StudentProjects studentProjectId;
+	private StudentProject studentProjectId;
 	@ManyToOne()
 	@JoinColumn(name="PROJECT_SPRINTS_ID")
 	private ProjectSprint projectSprintId;

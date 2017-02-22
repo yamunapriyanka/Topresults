@@ -12,6 +12,9 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "seed_degrees",uniqueConstraints = {
 	    @UniqueConstraint(columnNames={"NAME"})})
 public class SeedDegree {
+	private SeedDegree(){
+		
+	}
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;

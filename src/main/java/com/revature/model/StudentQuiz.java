@@ -17,6 +17,9 @@ package com.revature.model;
 	@Entity
 	@Table(name = "student_quizzes")
 	public class StudentQuiz {
+		private StudentQuiz(){
+			
+		}
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Integer id;

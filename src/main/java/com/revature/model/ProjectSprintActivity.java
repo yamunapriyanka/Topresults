@@ -17,6 +17,9 @@ import javax.persistence.UniqueConstraint;
 	    @UniqueConstraint(columnNames={"PROJECT_SPRINT_ID", "OFFLINE_ACTIVITY"})
 	})
 public class ProjectSprintActivity {
+	private ProjectSprintActivity(){
+		
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
