@@ -12,9 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "REVTEK_STUDENTS")
+@Table(name = "revtek_students",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"EMAIL_ID", "NAME"})})
 public class RevtekStudent {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +25,7 @@ public class RevtekStudent {
 private String name;
   @ManyToOne()
 	@JoinColumn(name = "UNIVERSITY_ID")
-	private SeedUniversisty universityid;
+	private SeedUniversity universityid;
   @Column(name = "EMAIL_ID")
   private String emailid;
   
@@ -34,7 +36,7 @@ private String name;
   @Temporal(TemporalType.DATE)
  private Date registeredOn;
   @Column(name = "IS_ACTIVE")
-  private Boolean isActive;
+  private Boolean isActive=true;
   
   
   public Integer getId() {
@@ -49,10 +51,10 @@ private String name;
 	public void setName(String name) {
 		this.name = name;
 	}
-	public SeedUniversisty getUniversityid() {
+	public SeedUniversity getUniversityid() {
 		return universityid;
 	}
-	public void setUniversityid(SeedUniversisty universityid) {
+	public void setUniversityid(SeedUniversity universityid) {
 		this.universityid = universityid;
 	}
 	public String getEmailid() {

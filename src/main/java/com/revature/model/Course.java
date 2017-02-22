@@ -1,9 +1,5 @@
 package com.revature.model;
-
-
-
-
-	import javax.persistence.Column;
+import javax.persistence.Column;
 	import javax.persistence.Entity;
 	import javax.persistence.GeneratedValue;
 	import javax.persistence.GenerationType;
@@ -11,9 +7,11 @@ package com.revature.model;
 	import javax.persistence.JoinColumn;
 	import javax.persistence.ManyToOne;
 	import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 	@Entity
-	@Table(name = "student_courses")
+	@Table(name = "student_courses",uniqueConstraints={
+			@UniqueConstraint(columnNames={"TITLE"})})
 	public class Course {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +23,7 @@ package com.revature.model;
 		 
 		 @ManyToOne()
 		 @JoinColumn(name ="CATEGORY_ID")
-		private Category categoryid;
+		private Category category;
 		 @Column(name = "ENROLLMENT_POINTS")
 		private	Integer enrollmentpoints;
 		
@@ -33,7 +31,7 @@ package com.revature.model;
 			private	Integer completionpoints;
 		 
 		 @Column(name = "IS_ACTIVE")
-			private	boolean isactive;
+			private	boolean isactive=true;
 		 
 		 
 		 
@@ -62,11 +60,11 @@ package com.revature.model;
 			}
 
 			public Category getCategoryid() {
-				return categoryid;
+				return category;
 			}
 
-			public void setCategoryid(Category categoryid) {
-				this.categoryid = categoryid;
+			public void setCategoryid(Category category) {
+				this.category = category;
 			}
 
 			public Integer getEnrollmentpoints() {

@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "SEED_MAJORS")
+@Table(name = "seed_majors",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"NAME"})})
 public class SeedMajor {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

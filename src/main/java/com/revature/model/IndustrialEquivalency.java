@@ -5,9 +5,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "industrial_equivalency")
+@Table(name = "industrial_equivalency",uniqueConstraints={
+		@UniqueConstraint(columnNames={"ID","SKILL_SETS"})})
 public class IndustrialEquivalency {
       @Id
       @GeneratedValue(strategy = GenerationType.AUTO)

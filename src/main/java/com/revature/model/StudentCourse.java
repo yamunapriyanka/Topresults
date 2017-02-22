@@ -13,9 +13,11 @@ package com.revature.model;
 	import javax.persistence.JoinColumn;
 	import javax.persistence.ManyToOne;
 	import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 	@Entity
-	@Table(name = "student_courses")
+	@Table(name = "student_courses",uniqueConstraints = {
+		    @UniqueConstraint(columnNames={"STUDENT_ID", "COURSE_ID"})})
 	public class StudentCourse {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)

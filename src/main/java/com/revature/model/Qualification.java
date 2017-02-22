@@ -14,73 +14,59 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "QUALIFICATIONS")
+@Table(name = "qualifications")
 public class Qualification {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
   @ManyToOne()
  @JoinColumn(name = "DEGREE_ID")
- private Integer degreeid;
+ private SeedDegree degree;
   @ManyToOne()
   @JoinColumn(name = "MAJOR_ID")
-  private Integer majorid;
+  private SeedMajor major;
   private String university;
   private Float cgpa;
   @Column(name ="GRADUATION_MONTH")
   @Temporal(TemporalType.DATE)
  private Date graduationMonth;
-  public Integer getDegreeid() {
-	return degreeid;
+public Integer getId() {
+	return id;
 }
-
-public void setDegreeid(Integer degreeid) {
-	this.degreeid = degreeid;
+public void setId(Integer id) {
+	this.id = id;
 }
-
-public Integer getMajorid() {
-	return majorid;
+public SeedDegree getDegree() {
+	return degree;
 }
-
-public void setMajorid(Integer majorid) {
-	this.majorid = majorid;
+public void setDegree(SeedDegree degree) {
+	this.degree = degree;
 }
-
+public SeedMajor getMajor() {
+	return major;
+}
+public void setMajor(SeedMajor major) {
+	this.major = major;
+}
 public String getUniversity() {
 	return university;
 }
-
 public void setUniversity(String university) {
 	this.university = university;
 }
-
 public Float getCgpa() {
 	return cgpa;
 }
-
 public void setCgpa(Float cgpa) {
 	this.cgpa = cgpa;
 }
-
 public Date getGraduationMonth() {
 	return graduationMonth;
 }
-
 public void setGraduationMonth(Date graduationMonth) {
 	this.graduationMonth = graduationMonth;
 }
-
-
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
- 
+  
  
 
 

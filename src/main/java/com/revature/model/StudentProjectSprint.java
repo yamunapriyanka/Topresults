@@ -11,10 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "student_project_sprints")
-public class StudentProjectSprints {
+@Table(name = "student_project_sprints",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"STUDENT_PROJECT_ID", "PROJECT_SPRINTS_ID"})})
+public class StudentProjectSprint {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;

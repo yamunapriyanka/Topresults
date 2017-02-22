@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "VIDEOS")
+@Table(name = "videos",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"URL", "NAME"})})
 public class Video {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

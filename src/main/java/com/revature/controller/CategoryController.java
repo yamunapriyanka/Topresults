@@ -17,25 +17,22 @@ import com.revature.model.Category;
 @RequestMapping("/")
 public class CategoryController {
 
-  private static Logger logger = Logger.getLogger(CategoryController.class);
+	private static Logger logger = Logger.getLogger(CategoryController.class);
 
-  @Autowired
-  private CategoryService categoryService;
+	@Autowired
+	private CategoryService categoryService;
 
-  @RequestMapping("/categories")
-  public List<Category> getActiveCategoriesController() {
-    List<Category> categories = null;
-    try {
-      logger.info("Getting the categories data...");
-      categories = categoryService.getAllCategories();
-      logger.info("categories data retrieval success.");
-    } catch (BusinessServiceException e) {
-      logger.error(e.getMessage(), e);
-      throw new InvalidInputException(e.getMessage(), e);
-    } catch (Exception e) {
-      logger.error(e.getMessage(), e);
-      throw new InternalException("System has some issue...", e);
-    }
-    return categories;
-  }
+	@RequestMapping("/categories")
+	public List<Category> getActiveCategoriesController() {
+		try {
+			logger.info("Getting the categories data...");
+			return categoryService.getAllCategories();
+		} catch (BusinessServiceException e) {
+			logger.error(e.getMessage(), e);
+			throw new InvalidInputException(e.getMessage(), e);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+			throw new InternalException("System has some issue...", e);
+		}
+	}
 }

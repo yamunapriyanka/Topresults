@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "student_projects")
+@Table(name = "student_projects",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"STUDENT_ID", "PROJECT_ID"})})
 public class StudentProjects {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -1,3 +1,4 @@
+
 package com.revature.model;
 
 import javax.persistence.Column;
@@ -9,13 +10,15 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "categories", uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
-public class Category {
+@Table(name = "seed_universities", uniqueConstraints = { @UniqueConstraint(columnNames = { "NAME" }) })
+public class SeedUniversity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 
 	private Integer id;
 	private String name;
+	@Column(name = "EMAIL_ID")
+	private String emailId;
 	@Column(name = "IS_ACTIVE")
 	private Boolean isActive = true;
 
@@ -33,6 +36,14 @@ public class Category {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
 	}
 
 	public Boolean getIsActive() {

@@ -6,9 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "seed_status")
+@Table(name = "seed_status",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"ID", "CODE"})})
 
 public class SeedStatus {
 	@Id

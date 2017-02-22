@@ -1,62 +1,60 @@
 
+package com.revature.model;
 
-
-	package com.revature.model;
-
-	import java.time.LocalTime;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
-	import javax.persistence.Entity;
-	import javax.persistence.GeneratedValue;
-	import javax.persistence.GenerationType;
-	import javax.persistence.Id;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
-	@Entity
-	@Table(name = "STUDENT_COURSE_ACTIVITIES")
-	public class StudentCourseActivity {
-	  @Id
-	  @GeneratedValue(strategy = GenerationType.AUTO)
-	  private Integer id;
-	  @ManyToOne()
-	  @JoinColumn(name="STUDENT_COURSE_ID")
-	  private Integer studentCourseId;
-	  @ManyToOne()
-	  @JoinColumn(name="STUDENT_COURSE_ID")
-	  private Integer courseContentId;
-	  @Column(name = "STARTED_ON")
-		private LocalTime startedOn;
-		 @Column(name = "COMPLETED_ON")
-		private LocalTime completedOn;
-	  @ManyToOne()
-		@JoinColumn(name = "STATUS")
-		private SeedStatus status;
-		
-	 
+@Entity
+@Table(name = "student_course_activities", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "STUDENT_COURSE_ID", "COURSE_CONTENT_ID" }) })
+public class StudentCourseActivity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer id;
+	@ManyToOne()
+	@JoinColumn(name = "STUDENT_COURSE_ID")
+	private StudentCourse studentCourseId;
+	@ManyToOne()
+	@JoinColumn(name = "COURSE_CONTENT_ID")
+	private CourseContent courseContentId;
+	@Column(name = "STARTED_ON")
+	private LocalTime startedOn;
+	@Column(name = "COMPLETED_ON")
+	private LocalTime completedOn;
+	@ManyToOne()
+	@JoinColumn(name = "STATUS")
+	private SeedStatus status;
 
-	  public Integer getId() {
-	    return id;
-	  }
+	public Integer getId() {
+		return id;
+	}
 
-	  public void setId(Integer id) {
-	    this.id = id;
-	  }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-	public Integer getStudentCourseId() {
+	public StudentCourse getStudentCourseId() {
 		return studentCourseId;
 	}
 
-	public void setStudentCourseId(Integer studentCourseId) {
+	public void setStudentCourseId(StudentCourse studentCourseId) {
 		this.studentCourseId = studentCourseId;
 	}
 
-	public Integer getCourseContentId() {
+	public CourseContent getCourseContentId() {
 		return courseContentId;
 	}
 
-	public void setCourseContentId(Integer courseContentId) {
+	public void setCourseContentId(CourseContent courseContentId) {
 		this.courseContentId = courseContentId;
 	}
 
@@ -84,11 +82,4 @@ import javax.persistence.Table;
 		this.status = status;
 	}
 
-	
-
-	 
-
-
-
-	}
-
+}

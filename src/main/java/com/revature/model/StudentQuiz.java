@@ -16,7 +16,7 @@ package com.revature.model;
 
 	@Entity
 	@Table(name = "student_quizzes")
-	public class StudentQuizz {
+	public class StudentQuiz {
 		@Id
 		@GeneratedValue(strategy = GenerationType.AUTO)
 		private Integer id;

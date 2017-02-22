@@ -20,10 +20,10 @@ public class CourseContent {
 	private Integer id;
 	@ManyToOne()
 	@JoinColumn(name = "COURSE_ID")
-	private Course courseId;
+	private Course course;
 	@ManyToOne()
 	@JoinColumn(name = "VIDEO_ID")
-	private Video videoId;
+	private Video video;
 	@Column(name = "TEXT_CONTENT")
 	private String textContent;
 	
@@ -33,17 +33,17 @@ public class CourseContent {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Course getCourseId() {
-		return courseId;
+	public Course getCourse() {
+		return course;
 	}
-	public void setCourseId(Course courseId) {
-		this.courseId = courseId;
+	public void setCourse(Course course) {
+		this.course = course;
 	}
-	public Video getVideoId() {
-		return videoId;
+	public Video getVideo() {
+		return video;
 	}
-	public void setVideoId(Video videoId) {
-		this.videoId = videoId;
+	public void setVideoId(Video video) {
+		this.video = video;
 	}
 	public String getTextContent() {
 		return textContent;

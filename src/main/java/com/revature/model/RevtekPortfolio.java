@@ -8,9 +8,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "revtek_portfolio")
+@Table(name = "revtek_portfolio",uniqueConstraints = {
+	    @UniqueConstraint(columnNames={"ID", "NAME"})})
 public class RevtekPortfolio {
       @Id
       @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,7 +34,7 @@ public class RevtekPortfolio {
       @JoinColumn(name="CERTIFICATION_ID")
       private Certification certificationId;
       @Column(name = "IS_ACTIVE")
-      private Boolean isActive;
+      private Boolean isActive=true;
     public Integer getId() {
         return id;
     }
